@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# Use the improved editor..
+alias vi="vim"
+
+# Changes to get grep to show colored output..
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip --color=auto'
+
+# Some hacks for ls to show everything..
+alias ls="ls --color=auto -CF"
+alias l="ls --color=auto -AFhls"
+alias ll="ls --color=auto -AFhls"
+alias up="cd .."
+alias uu="cd ../.."
+alias uuu="cd ../../.."
+alias upup="cd ../../../.."
+
+# Folder shortcuts..
+alias gor="cd /var/root"
+alias golog="cd /var/log"
+alias gow="cd /var/www/html"
+
+# Show sizes for the cwd..
+alias ms="du -sh *"
+
+# Safety features..
+alias mv="mv -i"
+alias mkdir="mkdir -p"
+
