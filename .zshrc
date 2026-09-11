@@ -228,7 +228,8 @@ godir() {
 #	curl -s http://"$1"/ | pandoc -f html -t markdown | vim -R -
 #}
 # for google in the command line..
-export GEMINI_API_KEY="AQ.Ab8RN6KJL9-0vFXVBna5Aspzj1-JsLWTGIiJn3EkAPNmStrIOA"
+#Gemini API Key needs to be stored locally, NOT on GitHub!
+source ~/.ssh/.geminiapikey
 # Virtual Environment Installed for Python Environments..
 export PYENV_ROOT="/home/etch/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
