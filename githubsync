@@ -1,0 +1,37 @@
+TODO: create numbered options page..
+
+	1. authenticate with the github server to unlock features that require write permissions..
+
+		a. ask username and password per session to connect and create ssh key for permanently authenticated
+		   access to the github repository that hosts the config files. this is for developers only..
+
+	2. read only option for downloading home configs and environment as initial setup..
+
+		a. standard pull request that automatically checks and runs an initial setup script..
+		b. needs to clone repo to home folder.
+		c. needs to move files to respective locations.
+		d. needs to create symlinks if necessary or folders for binaries.
+		e. needs root access for sudo synchronization for specific files.
+		f. OR needs to adapt to a user environment without sudo.. (not possible for admins..)
+
+	3. authenticated option for pushing environment changes on local machine to ghrepo..
+
+		a. this is separate from the homeconfigs command but should require the same testing of files before upload..
+		b. allow individual file to sync with the repo. 
+		c. create list of preferred files to update and sync. 
+		d. define stardard list of files that are constantly under modification. 
+
+	4. ro resync of local config files in case something became corrupt somewhere..
+
+		a. simple system pull defined by checking files for modification times and replacing with older files..
+		b. possibly a check for newly installed software for dependency conflicts by using package manager cmds..
+
+	5. rw option to add a new file to the github repository defined by set criteria..
+
+		a. folder structure needs to be defined per architecture type
+		b. and shell environment style
+		c. other should allow addition of new arch and shell types..
+
+	6. set up login and logout environment overwrites in case of user takovers or error scenarios..
+
+		a. define fallback procedures in case of possible data corruption and permission overwrites by system..

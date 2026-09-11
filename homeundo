@@ -1,0 +1,19 @@
+#!/bin/bash
+echo " Reversing changes made to global folder.."
+set -e
+export SKEL='/etc/skel'
+[ -f "$SKEL/.aliases.bak" ] && mv -v /etc/skel/.aliases.bak /etc/skel/.aliases || echo ' no backup .aliases file to restore..'
+[ -f "$SKEL/.profile.bak" ] && mv -v /etc/skel/.profile.bak /etc/skel/.profile || echo ' no backup .profile file to restore..'
+[ -f "$SKEL/.zprofile.bak" ] && mv -v /etc/skel/.zprofile.bak /etc/skel/.zprofile || echo ' no backup .zprofile file to restore..'
+[ -f "$SKEL/.bashrc.etch.bak" ] && mv -v /etc/skel/.bashrc.etch.bak /etc/skel/.bashrc.etch || echo ' no backup .bashrc file to restore..'
+[ -f "$SKEL/.zshrc.bak" ] && mv -v /etc/skel/.zshrc.bak /etc/skel/.zshrc || echo ' no backup .zshrc file to restore..'
+[ -f "$SKEL/.vimrc.bak" ] && mv -v /etc/skel/.vimrc.bak /etc/skel/.vimrc || echo ' no backup .vimrc file to restore..'
+set +e
+echo ' re-syncing home folder with the old configs..'
+cp -v /etc/skel/.aliases /home/etch/.aliases
+cp -v /etc/skel/.bashrc.etch /home/etch/.bashrc
+cp -v /etc/skel/.profile /home/etch/.profile
+cp -v /etc/skel/.vimrc /home/etch/.vimrc
+cp -v /etc/skel/.zprofile /home/etch/.zprofile
+cp -v /etc/skel/.zshrc /home/etch/.zshrc
+echo ' complete..'

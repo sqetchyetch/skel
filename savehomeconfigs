@@ -1,0 +1,91 @@
+#!/bin/bash
+set -e
+echo "                                code 8, backing up global directory.."
+sudo cp -v /etc/skel/.aliases /etc/skel/.aliases.bak
+sudo cp -v /etc/skel/.zprofile /etc/skel/.zprofile.bak
+sudo cp -v /etc/skel/.profile /etc/skel/.profile.bak
+sudo cp -v /etc/skel/.zshrc /etc/skel/.zshrc.bak
+sudo cp -v /etc/skel/.bashrc.root /etc/skel/.bashrc.root.bak
+sudo cp -v /etc/skel/.vimrc /etc/skel/.vimrc.bak
+echo "done.."
+echo " "
+echo "                      code 6, moving new config files to global dir.."
+sudo cp -v /root/.aliases /etc/skel/.aliases
+sudo cp -v /root/.zprofile /etc/skel/.zprofile
+sudo cp -v /root/.profile /etc/skel/.profile
+sudo cp -v /root/.zshrc /etc/skel/.zshrc
+sudo cp -v /root/.bashrc /etc/skel/.bashrc.root
+sudo cp -v /root/.vimrc /etc/skel/.vimrc
+echo "done.."
+echo " "
+set +e
+# wait for human verification
+echo "      open a new terminal shell and make sure everything works okay.."
+echo " "
+echo "   if there are no bugs, go ahead and hit ENTER to commit your work.."
+echo " "
+echo "                (to CANCEL type C and press RETURN..)"
+echo " "
+read -r response
+if [ -z "$response" ]; then
+	# everything works, get rid of backups..
+	set -e	
+	echo " "
+	echo "                          files saved, cleaning up the temp folder.."
+	sudo rm -v /etc/skel/.aliases.bak
+	sudo rm -v /etc/skel/.zprofile.bak
+	sudo rm -v /etc/skel/.profile.bak
+	sudo rm -v /etc/skel/.zshrc.bak
+	sudo rm -v /etc/skel/.bashrc.root.bak
+	sudo rm -v /etc/skel/.vimrc.bak
+	echo "success!"
+	echo " "
+	echo "             new config settings now available in global repository!"
+	echo " "
+	set +e
+else
+	# cancel was typed, return global config files to their previous state..
+	set -e
+	echo " "
+	echo "                        returning global configs to previous state.."
+	sudo mv -v /etc/skel/.aliases.bak /etc/skel/.aliases
+	sudo mv -v /etc/skel/.profile.bak /etc/skel/.profile
+	sudo mv -v /etc/skel/.zprofile.bak /etc/skel/.zprofile
+	sudo mv -v /etc/skel/.bashrc.root.bak /etc/skel/.bashrc.root
+	sudo mv -v /etc/skel/.zshrc.bak /etc/skel/.zshrc
+	sudo mv -v /etc/skel/.vimrc.bak /etc/skel/.vimrc
+	set +e
+	echo "global configs restored.."
+	echo " "
+	echo "            undo changes and give up? or keep editing home configs.."
+	echo " "
+	echo "         (ENTER = undo changes / Cancel = keep editing)"
+	echo " "
+	read -r response2
+	if [ -z "$response2" ]; then
+		# we gotta put everything back to stock bootrom option..
+		set -e
+		echo " "
+		echo "                               restoring home configuration files.."
+		sudo cp -v /etc/skel/.aliases ~/.aliases
+		sudo cp -v /etc/skel/.profile ~/.profile
+		sudo cp -v /etc/skel/.zprofile ~/.zprofile
+		sudo cp -v /etc/skel/.bashrc.root ~/.bashrc
+		sudo cp -v /etc/skel/.zshrc ~/.zshrc
+		sudo cp -v /etc/skel/.vimrc ~/.vimrc
+		set +e
+		echo "home configs restored.."
+		echo " "
+		echo "                              code 14, return to normal operations!"
+		echo " "
+		exit 0
+	else
+		# files already fixed upstream, what was the problem anyway?
+		echo "                                       leaving home configs alone.."
+		echo " "
+		echo "                               try to fix the issue and come back.."
+		echo " "
+		exit 1
+	fi
+fi
+

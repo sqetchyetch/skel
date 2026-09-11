@@ -5,9 +5,7 @@
 # shells invoked with the -l flag.)
 #
 # Global Order: zshenv, zprofile, zshrc, zlogin
-
-#if [ -f "$HOME/.profile" ]; then
-    #emulate sh -c '. "$HOME/.profile"'
-#fi
-
-source ~/.profile
+#
+if [ -f "$HOME/.profile" ]; then
+	. "$HOME/.profile"
+fi
