@@ -1,13 +1,38 @@
 TODO: create numbered options page..
 
-	1. authenticate with the github server to unlock features that require write permissions..
+	1. authenticate with the github server to unlock features that require write permissions..done..
+if [ -z "ssh -T git@github.com | grep Hello" ]; then
+	exit 0
+else 
+	echo ' enter repo name with no spaces for ssh key..'
+	readline -r repo_name
+	if [ -n $repo_name ]: then
+		echo $repo_name
+		$repo_name=="~/.ssh/.$repo_name"
+		echo $repo_name
+		if [ -f "$repo_name" ]; then
+			exit 1
+		else
+			ssh-keygen -t ed25519 -f "$repo_name"
+			eval "$(ssh-agent -s)"
+			ssh-add "$repo_name"
+			cat "$repo_name.pub"
+			echo ' '
+			echo " Copy Public key to GitHub Settings SSH Key.."
+		fi
+	else
+		echo " You must name your ssh key, leaving default may overwrite current keys.."
+		exit 1
+	fi
+fi
 
-		a. ask username and password per session to connect and create ssh key for permanently authenticated
-		   access to the github repository that hosts the config files. this is for developers only..
 
 	2. read only option for downloading home configs and environment as initial setup..
 
 		a. standard pull request that automatically checks and runs an initial setup script..
+install() {
+	
+}
 		b. needs to clone repo to home folder.
 		c. needs to move files to respective locations.
 		d. needs to create symlinks if necessary or folders for binaries.
