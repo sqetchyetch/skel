@@ -1,3 +1,4 @@
+# Installation instructions at end of text..
 # 
 # the <freshinstall> command checks for must have tools and binaries every admin needs to efficiently perform the duties of a professional
 # technician. saving time by allowing this precollected system of dependencies and tools tailored for each environment makes it easy to 
@@ -25,3 +26,13 @@
 # to work "out of the box" so to speak. care has been taken to include options for various user case scenarios; however, we have a user 
 # definied preference here and any lack of knowledge may show as a lack of configuration settings for your device configuration. hopefully
 # if you find these scripts useful, they won't be too difficult to adapt.
+
+# To install: Fork the repository and modify the src folder to customize you files the way you like them. Defaults are perfectly acceptable
+# however, having your own fork will allow you the freedom of choice and any updates that add functionality to this repo will leave the src
+# folder untouched to avoid modifying your config changes. 
+# Once forked: 
+# $ git clone <your_forked_url>
+# $ cd skel
+# $ ./install.sh
+# follow the prompts..
+#  Currently supported: zsh, bash
