@@ -1,62 +1,71 @@
-TODO: create numbered options page..
+#!/bin/bash
+#TODO: create numbered options page..
 
-	1. authenticate with the github server to unlock features that require write permissions..done..
-if [ -z "ssh -T git@github.com | grep Hello" ]; then
-	exit 0
-else 
-	echo ' enter repo name with no spaces for ssh key..'
-	readline -r repo_name
-	if [ -n $repo_name ]: then
-		echo $repo_name
-		$repo_name=="~/.ssh/.$repo_name"
-		echo $repo_name
-		if [ -f "$repo_name" ]; then
-			exit 1
-		else
-			ssh-keygen -t ed25519 -f "$repo_name"
-			eval "$(ssh-agent -s)"
-			ssh-add "$repo_name"
-			cat "$repo_name.pub"
-			echo ' '
-			echo " Copy Public key to GitHub Settings SSH Key.."
-		fi
-	else
-		echo " You must name your ssh key, leaving default may overwrite current keys.."
-		exit 1
-	fi
-fi
+#	1. authenticate with the github server to unlock features that require write permissions..
+
+# authenticatewithgithub() {
+#	if [ -n 'ssh -T git@github.com | grep successfully\ authenticated' ]; then
+#		exit 0
+#	else 
+#		echo ' enter repo name with no spaces for ssh key..'
+#		read -r repo_name
+#
+#		if [ -z "$repo_name" ]; then
+#			echo " You must name your ssh key, leaving default may overwrite current keys.."
+#			exit 1
+#		else
+#			if [ -n "~/.ssh/.$repo_name" ]; then
+#				ssh-keygen -t ed25519 -f "$repo_name"
+#				eval "$(ssh-agent -s)"
+#				ssh-add "$repo_name"
+#			fi
+#			mv "$repo_name" "$HOME/.ssh/$repo_name"
+#			mv "$repo_name.pub" "$HOME/.ssh/$repo_name.pub"
+#			echo ' '
+#			echo ' \/ PUBLIC KEY \/'
+#			echo ' '
+#			cat "$HOME/.ssh/$repo_name.pub"
+#			echo ' '
+#			echo ' /\ PUBLIC KEY /\'
+#			echo ' '
+#			echo " Copy Public key to Forked GitHub Repo Settings -> Add New SSH Key.."
+#			echo ' '
+#		fi
+#	fi
+#}
+#authenticatewithgithub
 
 
-	2. read only option for downloading home configs and environment as initial setup..
+#	2. read only option for downloading home configs and environment as initial setup..
 
-		a. standard pull request that automatically checks and runs an initial setup script..
-install() {
+#		a. standard pull request that automatically checks and runs an initial setup script..
+# install() {
 	
-}
-		b. needs to clone repo to home folder.
-		c. needs to move files to respective locations.
-		d. needs to create symlinks if necessary or folders for binaries.
-		e. needs root access for sudo synchronization for specific files.
-		f. OR needs to adapt to a user environment without sudo.. (not possible for admins..)
+# }
+#		b. needs to clone repo to home folder.
+#		c. needs to move files to respective locations.
+#		d. needs to create symlinks if necessary or folders for binaries.
+#		e. needs root access for sudo synchronization for specific files.
+#		f. OR needs to adapt to a user environment without sudo.. (not possible for admins..)
 
-	3. authenticated option for pushing environment changes on local machine to ghrepo..
+#	3. authenticated option for pushing environment changes on local machine to ghrepo..
 
-		a. this is separate from the homeconfigs command but should require the same testing of files before upload..
-		b. allow individual file to sync with the repo. 
-		c. create list of preferred files to update and sync. 
-		d. define stardard list of files that are constantly under modification. 
+#		a. this is separate from the homeconfigs command but should require the same testing of files before upload..
+#		b. allow individual file to sync with the repo. 
+#		c. create list of preferred files to update and sync. 
+#		d. define stardard list of files that are constantly under modification. 
 
-	4. ro resync of local config files in case something became corrupt somewhere..
+#	4. ro resync of local config files in case something became corrupt somewhere..
 
-		a. simple system pull defined by checking files for modification times and replacing with older files..
-		b. possibly a check for newly installed software for dependency conflicts by using package manager cmds..
+#		a. simple system pull defined by checking files for modification times and replacing with older files..
+#		b. possibly a check for newly installed software for dependency conflicts by using package manager cmds..
 
-	5. rw option to add a new file to the github repository defined by set criteria..
+#	5. rw option to add a new file to the github repository defined by set criteria..
+#
+#		a. folder structure needs to be defined per architecture type
+#		b. and shell environment style
+#		c. other should allow addition of new arch and shell types..
+#
+#	6. set up login and logout environment overwrites in case of user takovers or error scenarios..
 
-		a. folder structure needs to be defined per architecture type
-		b. and shell environment style
-		c. other should allow addition of new arch and shell types..
-
-	6. set up login and logout environment overwrites in case of user takovers or error scenarios..
-
-		a. define fallback procedures in case of possible data corruption and permission overwrites by system..
+#		a. define fallback procedures in case of possible data corruption and permission overwrites by system..
