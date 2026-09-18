@@ -5,17 +5,17 @@ sudo cp -v /etc/skel/.aliases /etc/skel/.aliases.bak
 sudo cp -v /etc/skel/.zprofile /etc/skel/.zprofile.bak
 sudo cp -v /etc/skel/.profile /etc/skel/.profile.bak
 sudo cp -v /etc/skel/.zshrc /etc/skel/.zshrc.bak
-sudo cp -v /etc/skel/.bashrc.root /etc/skel/.bashrc.root.bak
+sudo cp -v /etc/skel/.bashrc /etc/skel/.bashrc.bak
 sudo cp -v /etc/skel/.vimrc /etc/skel/.vimrc.bak
 echo "done.."
 echo " "
 echo "                      code 6, moving new config files to global dir.."
-sudo cp -v /root/.aliases /etc/skel/.aliases
-sudo cp -v /root/.zprofile /etc/skel/.zprofile
-sudo cp -v /root/.profile /etc/skel/.profile
-sudo cp -v /root/.zshrc /etc/skel/.zshrc
-sudo cp -v /root/.bashrc /etc/skel/.bashrc.root
-sudo cp -v /root/.vimrc /etc/skel/.vimrc
+sudo cp -v ~/.aliases /etc/skel/.aliases
+sudo cp -v ~/.zprofile /etc/skel/.zprofile
+sudo cp -v ~/.profile /etc/skel/.profile
+sudo cp -v ~/.zshrc /etc/skel/.zshrc
+sudo cp -v ~/.bashrc /etc/skel/.bashrc
+sudo cp -v ~/.vimrc /etc/skel/.vimrc
 echo "done.."
 echo " "
 set +e
@@ -36,7 +36,7 @@ if [ -z "$response" ]; then
 	sudo rm -v /etc/skel/.zprofile.bak
 	sudo rm -v /etc/skel/.profile.bak
 	sudo rm -v /etc/skel/.zshrc.bak
-	sudo rm -v /etc/skel/.bashrc.root.bak
+	sudo rm -v /etc/skel/.bashrc.bak
 	sudo rm -v /etc/skel/.vimrc.bak
 	echo "success!"
 	echo " "
@@ -51,7 +51,7 @@ else
 	sudo mv -v /etc/skel/.aliases.bak /etc/skel/.aliases
 	sudo mv -v /etc/skel/.profile.bak /etc/skel/.profile
 	sudo mv -v /etc/skel/.zprofile.bak /etc/skel/.zprofile
-	sudo mv -v /etc/skel/.bashrc.root.bak /etc/skel/.bashrc.root
+	sudo mv -v /etc/skel/.bashrc.bak /etc/skel/.bashrc
 	sudo mv -v /etc/skel/.zshrc.bak /etc/skel/.zshrc
 	sudo mv -v /etc/skel/.vimrc.bak /etc/skel/.vimrc
 	set +e
@@ -70,7 +70,7 @@ else
 		sudo cp -v /etc/skel/.aliases ~/.aliases
 		sudo cp -v /etc/skel/.profile ~/.profile
 		sudo cp -v /etc/skel/.zprofile ~/.zprofile
-		sudo cp -v /etc/skel/.bashrc.root ~/.bashrc
+		sudo cp -v /etc/skel/.bashrc ~/.bashrc
 		sudo cp -v /etc/skel/.zshrc ~/.zshrc
 		sudo cp -v /etc/skel/.vimrc ~/.vimrc
 		set +e
