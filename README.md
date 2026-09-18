@@ -8,9 +8,11 @@
 
 ##### emphasis has been placed and legibility and ease of modification/customization of files but for the most part, each has been determined to work "out of the box" so to speak. care has been taken to include options for various user case scenarios; however, we have a user  definied preference here and any lack of knowledge may show as a lack of configuration settings for your device configuration. hopefully if you find these scripts useful, they won't be too difficult to adapt.
 
-##### To install: Fork the repository and modify the src folder to customize you files the way you like them. Defaults are perfectly acceptable however, having your own fork will allow you the freedom of choice and any updates that add functionality to this repo will leave the src folder untouched to avoid modifying your config changes.  Once forked: 
-# $ git clone <your_forked_url>
-# $ cd skel
-# $ ./install.sh
-# follow the prompts..
-#  Currently supported: zsh, bash
+### To install: 
+#### Fork the repository and modify the src folder to customize you files the way you like them. Defaults are perfectly acceptable however, having your own fork will allow you the freedom of choice and any updates that add functionality to this repo will leave the src folder untouched to avoid modifying your config changes.  
+#### Once forked: 
+#### $ git clone <your_forked_url>
+#### $ cd skel
+#### $ ./install.sh
+#### $ follow the prompts..
+#### Currently supported: zsh, bash, debian, mac, vim
