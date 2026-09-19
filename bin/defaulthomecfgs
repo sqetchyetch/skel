@@ -1,0 +1,35 @@
+#!/bin/bash
+defaulthomecfgs() {
+	# pull .aliases from skel..
+	sudo cp -v /etc/skel/.aliases ~/.aliases 
+	sudo chown $USER:$GID ~/.aliases 
+	sudo chmod 664 ~/.aliases 
+	ls -A ~/.aliases
+	# pull .bashrc from skel..
+	sudo cp -v /etc/skel/.bashrc.etch ~/.bashrc 
+	sudo chown $USER:$GID ~/.bashrc 
+	sudo chmod 664 ~/.bashrc 
+	ls -A ~/.bashrc 
+	# pull .profile from skel..
+	sudo cp -v /etc/skel/.profile ~/.profile 
+	sudo chown $USER:$GID ~/.profile 
+	sudo chmod 664 ~/.profile 
+	ls -A ~/.profile 
+	# pull .vimrc from skel..
+	sudo cp -v /etc/skel/.vimrc ~/.vimrc 
+	sudo chown $USER:$GID ~/.vimrc 
+	sudo chmod 664 ~/.vimrc 
+	ls -A ~/.vimrc 
+	# pull .zprofile from skel..
+	sudo cp -v /etc/skel/.zprofile ~/.zprofile 
+	sudo chown $USER:$GID ~/.zprofile 
+	sudo chmod 664 ~/.zprofile 
+	ls -A ~/.zprofile 
+	# pull .zshrc from skel..
+	sudo cp -v /etc/skel/.zshrc ~/.zshrc 
+	sudo chown $USER:$GID ~/.zshrc 
+	sudo chmod 664 ~/.zshrc 
+	ls -A ~/.zshrc 
+}
+
+defaulthomecfgs

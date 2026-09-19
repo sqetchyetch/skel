@@ -5,6 +5,5 @@ saveandquit() {
 	git commit -m "$message";
 	git push origin main
 }
-
 saveandquit
 
