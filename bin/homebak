@@ -1,18 +1,18 @@
 #!/bin/bash
-# backup skel files for etch
+# backup skel files
 sudo cp /etc/skel/.aliases /etc/skel/.aliases.bak
 sudo cp /etc/skel/.zprofile /etc/skel/.zprofile.bak
 sudo cp /etc/skel/.profile /etc/skel/.profile.bak
 sudo cp /etc/skel/.zshrc /etc/skel/.zshrc.bak
-sudo cp /etc/skel/.bashrc.etch /etc/skel/.bashrc.etch.bak
+sudo cp /etc/skel/.bashrc /etc/skel/.bashrc.bak
 sudo cp /etc/skel/.vimrc /etc/skel/.vimrc.bak
 # move new home files to skel folder
-sudo cp /home/etch/.aliases /etc/skel/.aliases
-sudo cp /home/etch/.zprofile /etc/skel/.zprofile
-sudo cp /home/etch/.profile /etc/skel/.profile
-sudo cp /home/etch/.zshrc /etc/skel/.zshrc
-sudo cp /home/etch/.bashrc /etc/skel/.bashrc.etch
-sudo cp /home/etch/.vimrc /etc/skel/.vimrc
+sudo cp ~/.aliases /etc/skel/.aliases
+sudo cp ~/.zprofile /etc/skel/.zprofile
+sudo cp ~/.profile /etc/skel/.profile
+sudo cp ~/.zshrc /etc/skel/.zshrc
+sudo cp ~/.bashrc /etc/skel/.bashrc
+sudo cp ~/.vimrc /etc/skel/.vimrc
 # wait for human verification
 echo "Check that a new terminal shell opens without "
 echo "problems before hitting error. Ctrl+C to abort."
@@ -22,6 +22,6 @@ sudo rm /etc/skel/.aliases.bak
 sudo rm /etc/skel/.zprofile.bak
 sudo rm /etc/skel/.profile.bak
 sudo rm /etc/skel/.zshrc.bak
-sudo rm /etc/skel/.bashrc.etch.bak
+sudo rm /etc/skel/.bashrc.bak
 sudo rm /etc/skel/.vimrc.bak
 echo "Success!"
