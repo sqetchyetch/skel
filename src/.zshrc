@@ -229,10 +229,10 @@ godir() {
 #}
 # for google in the command line..
 #Gemini API Key needs to be stored locally, NOT on GitHub!
-source ~/.ssh/.geminiapikey
+#source ~/.ssh/.geminiapikey
 # Virtual Environment Installed for Python Environments..
 export PYENV_ROOT="/home/etch/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 # ------------------------------------------------------------------------ }}}

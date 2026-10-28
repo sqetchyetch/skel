@@ -1,12 +1,19 @@
 #!/bin/bash
 #TODO: create numbered options page..
 
+echo "1.  Authenticate with Github.."
+echo "2.  Run the Install script.."
+echo "3.  Push updates to Github repo.."
+echo "4.  Reset home config files.."
+echo "5.  "
+read -r num
 #	1. authenticate with the github server to unlock features that require write permissions..
-./bin/ghauth
-
+if [ "$num" -eq 1 ]; then
+	./bin/ghauth
+elif [ "$num" -eq 2 ]; then
 #	2. read only option for downloading home configs and environment as initial setup..
 #		a. link all of the home configuration files to this repo and make sure the permissions are correct.
-install.sh
+./install.sh
 #		b. repo should already be cloned when the install.sh script is ran.
 #		e. needs root access for sudo synchronization for specific files.
 #		f. OR needs to adapt to a user environment without sudo.. (may not be possible for admins..)

@@ -13,7 +13,7 @@
 # Paths for python and pip3 to work with pyenv
 export PYENV_ROOT="/home/etch/.pyenv"
 [ -d $PYENV_ROOT/bin ] || mkdir -p ~/.pyenv/bin && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+#eval "$(pyenv init -)"
 # Paths for Android Studio installation
 export ANDROID_HOME="/home/etch/Android/Sdk"
 export ANDROID_STUDIO="/home/etch/Android/android-studio"
