@@ -33,12 +33,11 @@ placebinaries
 #}
 # linkhomefiles
 # linkhomefiles() {
-#	for f in .aliases .bashrc .profile .vimrc .zprofile .zshrc; do [ -f "~/$f" ] mv "~/$f" "~/$f.bak" && ln -sT "src/$f" "~/$f"; done
+#	for f in .aliases .bashrc .profile .vimrc .zprofile .zshrc; do [ -f "$HOME/$f" ] mv "$HOME/$f" "$HOME/$f.bak" && cp -fv "src/$f" "$HOME/$f"; done
 #}
 #linkhomefiles
 
 sudo apt update
 sudo apt install zsh vim binutils net-tools -y
-for f in .aliases .bashrc .profile .vimrc .zprofile .zshrc; do [ -f "~/$f" ] mv "~/$f" "~/$f.bak" && ln -sT "src/$f" "~/$f"; done
 chsh -s /bin/zsh
 
