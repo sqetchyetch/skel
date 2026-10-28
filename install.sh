@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export HOMECFGDIR="~/.skel"
+#export HOMECFGDIR="$HOME/.skel"
 
 # Check to make sure git is installed and other tools necessary for installation
 # import -> git
@@ -10,26 +10,26 @@ export HOMECFGDIR="~/.skel"
 
 # Move binary files to proper locations for use..
 placebinaries() {
-	[ -d "~/bin" ] || mkdir ~/bin;
-	cp ./bin/* ~/bin;
-	chown $USER:$GID ~/bin/defaulthomecfgs;
-	chown $USER:$GID ~/bin/ghauth;
-	chown $USER:$GID ~/bin/homepull;
-	chown $USER:$GID ~/bin/homeundo;
-	chown $USER:$GID ~/bin/savenquit;
-	chown $USER:$GID ~/bin/savehomeconfigs
+	[ -d "$HOME/bin" ] || mkdir $HOME/bin;
+	cp ./bin/* $HOME/bin;
+	chown $USER:$GID $HOME/bin/defaulthomecfgs;
+	chown $USER:$GID $HOME/bin/ghauth;
+	chown $USER:$GID $HOME/bin/homepull;
+	chown $USER:$GID $HOME/bin/homeundo;
+	chown $USER:$GID $HOME/bin/savenquit;
+	chown $USER:$GID $HOME/bin/savehomeconfigs
 }
 placebinaries
 
 # Manage home configuration files from skel folder in a way that allows permanency..
 #for f in file1.txt file2.txt file3.txt file4.txt file5.txt; do [ -f "$f" ] && mv "$f" "backup_$f" && mv "source_$f" "$f"; done
 # linkhomefiles() {
-#	[ -f "~/.aliases" ] && mv ~/.aliases ~/.aliases.bak || ln -sT src/.aliases ~/.aliases;
-#	[ -f "~/.bashrc" ] && mv ~/.bashrc ~/.bashrc.bak || ln -sT src/.bashrc ~/.bashrc;
-#	[ -f "~/.profile" ] && mv ~/.profile ~/.profile.bak || ln -sT src/.profile ~/.profile;
-#	[ -f "~/.vimrc" ] && mv ~/.vimrc ~/.vimrc.bak || ln -sT src/.vimrc ~/.vimrc;
-#	[ -f "~/.zprofile" ] && mv ~/.zprofile ~/.zprofile.bak || ln -sT src/.zprofile ~/.zprofile;
-#	[ -f "~/.zshrc" ] && mv ~/.zshrc ~/.zshrc.bak || ln -sT src/.zshrc ~/.zshrc
+#	[ -f "$HOME/.aliases" ] && mv $HOME/.aliases $HOME/.aliases.bak || ln -sT src/.aliases $HOME/.aliases;
+#	[ -f "$HOME/.bashrc" ] && mv $HOME/.bashrc $HOME/.bashrc.bak || ln -sT src/.bashrc $HOME/.bashrc;
+#	[ -f "$HOME/.profile" ] && mv $HOME/.profile $HOME/.profile.bak || ln -sT src/.profile $HOME/.profile;
+#	[ -f "$HOME/.vimrc" ] && mv $HOME/.vimrc $HOME/.vimrc.bak || ln -sT src/.vimrc $HOME/.vimrc;
+#	[ -f "$HOME/.zprofile" ] && mv $HOME/.zprofile $HOME/.zprofile.bak || ln -sT src/.zprofile $HOME/.zprofile;
+#	[ -f "$HOME/.zshrc" ] && mv $HOME/.zshrc $HOME/.zshrc.bak || ln -sT src/.zshrc $HOME/.zshrc
 #}
 # linkhomefiles
 # linkhomefiles() {
@@ -40,4 +40,4 @@ placebinaries
 sudo apt update
 sudo apt install zsh vim binutils net-tools -y
 chsh -s /bin/zsh
-
+exit
